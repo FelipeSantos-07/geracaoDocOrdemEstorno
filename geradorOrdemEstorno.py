@@ -13,7 +13,7 @@ class VerificadorGUI:
         self.root.geometry("350x200")
         self.root.resizable(width=False, height=False)
 
-        icon_path = "C:\estornoNeShop\logoNeshop.ico"
+        icon_path = "logoNeshop.ico"
         self.root.iconbitmap(icon_path)
 
         self.create_widgets()
@@ -167,7 +167,7 @@ class VerificadorGUI:
             contador += 1
             
         if not naoCriaOrdem:
-            arquivoExcel = load_workbook(filename='C:\estornoNeShop\OrdemEstorno.xlsx')
+            arquivoExcel = load_workbook(filename='OrdemEstorno.xlsx')
             edicaoDados = arquivoExcel.active
             edicaoDados['D8'] = data_atual.strftime("%d/%m/%Y")
             edicaoDados['J8'] = codigoOrdem
