@@ -13,7 +13,7 @@ class VerificadorGUI:
         self.root.geometry("350x200")
         self.root.resizable(width=False, height=False)
 
-        icon_path = "logoNeshop.ico"
+        icon_path = "C:\estornoNeShop\logoNeshop.ico"
         self.root.iconbitmap(icon_path)
 
         self.create_widgets()
@@ -127,7 +127,7 @@ class VerificadorGUI:
                 #elif "estorno" in title:  # Tipo do estorno
                 #    tipoEstorno = str(value)
                 elif "Valor" in title:  # Valor
-                    valorEstorno = str(value)
+                    valorEstorno = str(value).replace(",", ".")
                 elif "pagamento" in title:  # Tipo pagamento
                     tipoPagamento = str(value)
                 elif "Tipo" in title:  # Tipo Chave pix
@@ -167,7 +167,7 @@ class VerificadorGUI:
             contador += 1
             
         if not naoCriaOrdem:
-            arquivoExcel = load_workbook(filename='OrdemEstorno.xlsx')
+            arquivoExcel = load_workbook(filename='C:\estornoNeShop\OrdemEstorno.xlsx')
             edicaoDados = arquivoExcel.active
             edicaoDados['D8'] = data_atual.strftime("%d/%m/%Y")
             edicaoDados['J8'] = codigoOrdem
@@ -198,6 +198,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = VerificadorGUI(root)
     root.mainloop()
-
-
-# ALTERAÇÕES: NÃO ACEITA A ',' SOMENTE O '.' -> VALOR
